@@ -26,22 +26,34 @@ export default function App() {
     const rows = [];
     Object.entries(profileData.skills).forEach(([category, skills], catIdx) => {
       skills.forEach((skill, sIdx) => {
-        const statuses = ["ACTIVE", "SYSTEM", "RUNNING"];
-        const status = statuses[Math.floor(Math.random() * statuses.length)];
+        let mastery = "VETERAN";
+        let masteryClass = "text-cyan";
+        let roi = "[10x_MULT]";
         
-        // Give clear Experience metrics based on category mapping
-        let exp = "1 YRS";
-        if (category === "Languages" || category === "Databases" || category === "Web_Frameworks") exp = "3 YRS";
-        if (category === "Cross_Platform" || category === "DevOps_Cloud") exp = "2 YRS";
+        if (category === "Languages" || category === "Databases" || category === "Web_Frameworks") {
+           mastery = "ARCHITECT";
+           masteryClass = "text-gold";
+           roi = "[50x_SCALE]";
+        }
+        if (category === "Cross_Platform" || category === "DevOps_Cloud") {
+           mastery = "ENGINEER";
+           masteryClass = "text-accent";
+           roi = "[25x_MULT]";
+        }
 
-        // Hardcode his best skills to 3+
-        if (["React.js", "Node.js", "JavaScript (ES6+)", "Python", "React Native"].includes(skill)) exp = "3+ YRS";
+        // Hardcode his best skills to God Mode / Lethal
+        if (["React.js", "Node.js", "JavaScript (ES6+)", "Python", "React Native"].includes(skill)) {
+           mastery = "GOD_MODE";
+           masteryClass = "text-crimson glitch-animate";
+           roi = "[100x_IMPACT]";
+        }
 
         rows.push({
           id: skill,
           pid: 1000 + (catIdx * 100) + sIdx,
-          exp: exp,
-          status,
+          mastery,
+          masteryClass,
+          roi,
           category
         });
       });
@@ -303,26 +315,26 @@ export default function App() {
           </div>
         </section>
 
-        {/* HTOP RESOURCE MONITOR (SKILLS) */}
+        {/* ENTERPRISE IMPACT TELEMETRY (SKILLS) */}
         <section className="glass-panel system-packages">
           <div className="panel-title">
-             <Activity size={18} />
-             <span>SYSTEM // RESOURCE_MONITOR</span>
+             <Activity size={18} className="text-crimson" />
+             <span>SYSTEM // ENTERPRISE_VALUE_ENGINE</span>
           </div>
 
-          <div className="htop-table font-code">
+          <div className="htop-table font-code style-cyber">
              <div className="htop-header text-muted">
-                <span className="col-pid">PID</span>
-                <span className="col-status">STATUS</span>
-                <span className="col-binding">EXP_YRS</span>
-                <span className="col-cmd">MODULE</span>
+                <span className="col-pid">NODE_ID</span>
+                <span className="col-status">THREAT_RATING</span>
+                <span className="col-binding">ROI_MULT</span>
+                <span className="col-cmd">WEAPONIZED_ASSET</span>
              </div>
              <div className="htop-body">
                {skillProcesses.map((proc) => (
-                 <div key={proc.id} className="htop-row">
-                   <span className="col-pid">{proc.pid}</span>
-                   <span className="col-status status-text">[{proc.status}]</span>
-                   <span className="col-binding text-muted font-bold">{proc.exp}</span>
+                 <div key={proc.id} className="htop-row glitch-row">
+                   <span className="col-pid">0x{proc.pid.toString(16).toUpperCase()}</span>
+                   <span className={`col-status ${proc.masteryClass}`}>[ {proc.mastery} ]</span>
+                   <span className="col-binding text-muted font-bold">{proc.roi}</span>
                    <span className="col-cmd text-accent">{proc.id}</span>
                  </div>
                ))}
