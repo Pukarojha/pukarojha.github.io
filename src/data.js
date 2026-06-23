@@ -15,7 +15,7 @@ export const profileData = {
   },
   summary: "Full-stack software developer with 3+ years of professional experience in the design, development, testing, and maintenance of web and cross-platform applications. Proven ability to lead enhancement initiatives, investigate and resolve production problems, write and execute unit tests, and provide accurate delivery estimates for business cases and action requests. Experienced across CSharp, Java, Python, JavaScript, SQL, XML, and JSON; comfortable with REST and SOAP APIs, Git-based version control, Jenkins pipelines, Docker containerization, and Agile delivery. Effective communicator who works with equal confidence independently and within cross-functional teams to deliver reliable, maintainable software on schedule.",
   skills: {
-    "Languages": ["JavaScript (ES6+)", "Java", "Python", "CSharp", "PHP", "SQL", "XML", "JSON"],
+    "Languages": ["JavaScript (ES6+)", "Kotlin", "Java", "Python", "CSharp", "PHP", "SQL", "XML", "JSON"],
     "Web_Frameworks": ["React.js", "Node.js", "Express.js", "HTML5", "CSS3", "RESTful", "SOAP API"],
     "Cross_Platform": ["React Native", "Expo", "Redux", "Android SDK", "SQLite"],
     "DevOps_Cloud": ["AWS Amplify", "AWS Cognito", "AWS Lambda", "EC2", "Git", "Docker"],
@@ -27,7 +27,7 @@ export const profileData = {
       school: "Douglas College",
       location: "New Westminster, BC",
       degree: "Post-Baccalaureate Diploma -- Computing and Information Systems, Emerging Technologies",
-      year: "2024 -- 2026 (Expected)",
+      year: "2024 -- 2026",
       details: ["Software Engineering", "Full-Stack Web Development", "Mobile Development", "Data Structures and Algorithms"]
     },
     {
@@ -40,6 +40,13 @@ export const profileData = {
     }
   ],
   projects: [
+    {
+      id: "proj-15",
+      name: "DojuKeyboard",
+      role: "Client Project Developer",
+      tech: "Kotlin, Android SDK, InputMethodService",
+      description: "A customized Android keyboard application built for a client, featuring dynamic personalized themes, specialized key mapping layout engines, and low-latency input suggestion handlers."
+    },
     {
       id: "proj-14",
       name: "PitchVision AI",
